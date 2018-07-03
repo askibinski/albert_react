@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Recipes</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+
+  class Recipe extends React.Component {
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        title : 'Default title'
+      }
+
+      // This binding is necessary to make `this` work in the callback.
+      this.process = this.process.bind(this);
+    }
+
+    componentWillMount() {
+      this.get('http://albert.localhost/jsonapi/node/recipe');
+    }
+
+    get(url) {
+      fetch(url)
+        .then(this.status)
+        .then(this.json)
+        .then(this.process)
+        .catch(e => console.log(e));
+    }
+
+    status(response) {
+      if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response)
+      } else {
+        return Promise.reject(new Error('Looks like there was a problem. Status Code: ' +
+          response.status))
+      }
+    }
+
+    json(response) {
+      return response.json();
+    }
+
+    process(response) {
+      let random = Math.floor(Math.random() * response.data.length);
+      this.setState({
+        title : response.data[random].attributes.title
+      });
+    }
+
+    componentDidMount() {
+
+    }
+
+    render() {
+      return (
+        <div>
+          <h1>Recipe {this.state.title}</h1>
+          <p>Lorem ipsum.</p>
+        </div>
+      );
+    }
+  }
+
+  ReactDOM.render(
+    <Recipe />,
+    document.getElementById('root')
+  );
+
+
+</script>
+
+
+<!--
+  Note: this page is a great way to try React but it's not suitable for production.
+  It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+  To set up a production-ready React build environment, follow these instructions:
+  * https://reactjs.org/docs/add-react-to-a-new-app.html
+  * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+  You can also use React without JSX, in which case you can remove Babel:
+  * https://reactjs.org/docs/react-without-jsx.html
+  * https://reactjs.org/docs/cdn-links.html
+-->
+</body>
+</html>
