@@ -27,7 +27,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "public/"),
     port: 3000,
-    publicPath: "http://albert-react.localhost/",
+    publicPath: "http://localhost:3000/dist",
     hotOnly: true
   },
   plugins: [ new webpack.HotModuleReplacementPlugin() ]
