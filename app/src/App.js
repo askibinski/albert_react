@@ -7,8 +7,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title : 'Default title',
-      description : 'Lorem ipsum.'
+      title : 'Loading...',
+      description : '',
+      image : {
+        square_large : '',
+        alt : ''
+      }
     }
 
     // This binding is necessary to make `this` work in the callback.
@@ -18,11 +22,19 @@ class App extends React.Component {
   // Why not in WillMount?
   // https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/
   componentDidMount() {
-    this.get('http://albert.localhost/jsonapi/node/recipe');
+    this.get('http://albert.localhost/jsonapi/node/recipe?include=field_image');
   }
 
+  // @todo: https://colorfield.be/blog/react-and-drupal-8-json-api-3
   get(url) {
-    fetch(url)
+    // The consumer ID is added using a header. See d.o/project/consumers.
+    let headers = {
+      "X-Consumer-ID": "de2934b4-f106-4bd7-b42b-ba0b2034aa80"
+    }
+    fetch(url, {
+      method: "GET",
+      headers: headers
+    })
       .then(this.status)
       .then(this.json)
       .then(this.process)
@@ -43,17 +55,26 @@ class App extends React.Component {
   }
 
   process(response) {
+    // Let's just show a random recipe.
     let random = Math.floor(Math.random() * response.data.length);
     this.setState({
-      title : response.data[random].attributes.title
+      title : response.data[random].attributes.title,
+      description : response.data[random].attributes.field_description.value,
+      image : {
+        square_large: response.included[random].meta.derivatives.square_large,
+        alt: response.data[random].relationships.field_image.data.meta.alt
+      }
     });
   }
 
   render() {
     return (
-      <div>
-      <h1>{this.state.title}</h1>
-        <p>test</p>
+      <div className="wrapper">
+        <div className="recipe">
+        <h1 className="title">{this.state.title}</h1>
+          <img className="image" src={this.state.image.square_large} alt={this.state.image.alt} />
+          <div className="description" dangerouslySetInnerHTML={{__html: this.state.description}}></div>
+        </div>
       </div>
     );
   }
