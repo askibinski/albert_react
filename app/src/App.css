@@ -12,6 +12,7 @@ body {
 }
 
 .recipe {
+  width: 50%;
   text-align: center;
   border-radius: 10px;
   border: 2px solid #d3d3d3;
