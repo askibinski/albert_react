@@ -63,7 +63,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c3a73974543950b032f7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6b7f14d2faebb79f4c95"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -798,7 +798,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"body {\\n  font-family: Arial, Helvetica, sans-serif;\\n  background-color: #d3d3d3;\\n}\\n\\n.wrapper {\\n  display: grid;\\n  grid-template-columns: 1fr;\\n  grid-template-rows: 100vh;\\n  align-items: center;\\n  justify-items: center;\\n}\\n\\n.recipe {\\n  width: 50%;\\n  text-align: center;\\n  border-radius: 10px;\\n  border: 2px solid #d3d3d3;\\n  padding: 3rem;\\n  background-color: #fff;\\n  color: #acacac;\\n  box-shadow: 0 0 25px 0\\n}\\n\\n.title {\\n  font-family: 'Galada', cursive;\\n  color: #6e6e6e;\\n  font-size: 3rem;\\n  line-height: 3rem;\\n  margin: 0 auto;\\n  font-weight: 100;\\n  width: 75%;\\n}\\n\\n.image {\\n  border-radius: 50%;\\n  width: 240px;\\n  border: 2px solid #d3d3d3;\\n  margin: 3rem 0;\\n}\\n\\n.description {\\n  color: #6e6e6e;\\n  width: 75%;\\n  margin: 0 auto;\\n  text-align: left;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"body {\\n  font-family: Arial, Helvetica, sans-serif;\\n  background-color: #d3d3d3;\\n}\\n\\n.wrapper {\\n  display: grid;\\n  grid-template-columns: 1fr;\\n  /* grid-template-rows: 100vh; */\\n  align-items: center;\\n  justify-items: center;\\n}\\n\\n.recipe {\\n  width: 50%;\\n  text-align: center;\\n  border-radius: 10px;\\n  border: 2px solid #d3d3d3;\\n  padding: 3rem;\\n  background-color: #fff;\\n  color: #acacac;\\n  box-shadow: 0 0 25px 0\\n}\\n\\n.title {\\n  font-family: 'Galada', cursive;\\n  color: #6e6e6e;\\n  font-size: 3rem;\\n  line-height: 3rem;\\n  margin: 0 auto;\\n  font-weight: 100;\\n  width: 75%;\\n}\\n\\n.image {\\n  border-radius: 50%;\\n  width: 240px;\\n  border: 2px solid #d3d3d3;\\n  margin: 3rem 0;\\n}\\n\\n.description {\\n  color: #6e6e6e;\\n  width: 75%;\\n  margin: 0 auto;\\n  text-align: left;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/App.css?./node_modules/css-loader");
 
 /***/ }),
 
