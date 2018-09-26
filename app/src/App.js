@@ -22,10 +22,12 @@ class App extends React.Component {
   // Why not in WillMount?
   // https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/
   componentDidMount() {
-    this.get('http://albert.localhost/jsonapi/node/recipe?include=field_image');
+    this.get('https://albert.skibinski.nl/jsonapi/node/recipe?include=field_image');
   }
 
   // @todo: https://colorfield.be/blog/react-and-drupal-8-json-api-3
+  // @todo axios ?
+  // @todo async await ?
   get(url) {
     // The consumer ID is added using a header. See d.o/project/consumers.
     let headers = {
@@ -67,6 +69,7 @@ class App extends React.Component {
     });
   }
 
+  // @todo put in separate template.
   render() {
     return (
       <div className="wrapper">
