@@ -31,7 +31,7 @@ class App extends React.Component {
   get(url) {
     // The consumer ID is added using a header. See d.o/project/consumers.
     let headers = {
-      "X-Consumer-ID": "de2934b4-f106-4bd7-b42b-ba0b2034aa80"
+      "X-Consumer-ID": "b7f5e18b-0f1f-4125-8956-ab917fe3aa8d"
     }
     fetch(url, {
       method: "GET",
